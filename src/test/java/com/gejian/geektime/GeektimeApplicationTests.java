@@ -7,6 +7,9 @@ import com.gejian.geektime.strategy.after.Encryptor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @SpringBootTest
 class GeektimeApplicationTests {
 
@@ -22,6 +25,14 @@ class GeektimeApplicationTests {
         Encryptor blowfishEncryptor=new Encryptor(blowfishStrategy);
         blowfishEncryptor.setPlainText("This is plain text");
         blowfishEncryptor.encrypt();
+    }
+
+
+
+    @Test
+    public void testHashMap() {
+        Map<String, Object> map = new HashMap<>(4);
+        System.out.println(map);
     }
 
 }
