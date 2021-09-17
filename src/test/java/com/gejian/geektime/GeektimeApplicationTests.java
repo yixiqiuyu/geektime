@@ -11,6 +11,10 @@ import com.gejian.geektime.strategy.after.Encryptor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +37,63 @@ class GeektimeApplicationTests {
     }
 
 
+    @Test
+    void testList() {
+        List<String>  list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+
+        System.out.println(list.size());
+        Iterator<String> iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if ("1".equals(next)) {
+                iterator.remove();
+            }
+        }
+
+
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if ("2".equals(next)) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println(list.size());
+    }
+
+
+    public static void main(String[] args) {
+        List<String>  list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+
+        System.out.println(list.size());
+        Iterator<String> iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if ("1".equals(next)) {
+                iterator.remove();
+            }
+        }
+
+
+        // iterator经过一次遍历后，到达结尾，第二次再用的时候再使用 iterator.hasNext()，判断为false
+        while (iterator.hasNext()) {
+            String next = iterator.next();
+            if ("2".equals(next)) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println(list.size());
+    }
+
 
     @Test
     public void testHashMap() {
@@ -41,7 +102,7 @@ class GeektimeApplicationTests {
     }
 
     @Test
-    public void testObserver() throws Exception {
+    public void testObserver() {
         Subject product=new Product("36 inch LED TV",new BigDecimal(350));
         Observer bidder1=new Bidder("Alex Parker");
         Observer bidder2=new Bidder("Henry Smith");

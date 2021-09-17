@@ -42,7 +42,7 @@ public class Product implements Subject {
     @Override
     public void setBidAmount(Observer observer, BigDecimal newBidAmount) {
         int res = bidAmount.compareTo(newBidAmount);
-        if (res == -1) {
+        if (res < 0) {
             this.observer = observer;
             this.bidAmount = newBidAmount;
             notifyObservers();
